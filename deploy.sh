@@ -11,5 +11,5 @@ cd $workspace/large-app
 docker build -t koyadume/large-app .
 
 cd $workspace/docker-compose
-docker-compose down && docker-compose -p large-app-docker up -d
+docker-compose -p large-app-docker down && docker-compose -p large-app-docker up -d
 
