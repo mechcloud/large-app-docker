@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  proxy:
+  large-app:
     image: nginx:1.17-alpine
-    container_name: proxy
+    container_name: large-app
     ports:
       - "8090:80"
     volumes:
