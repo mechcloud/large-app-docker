@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git submodule update --init
+git submodule sync && git submodule update --init
 
 workspace=`pwd`
 
