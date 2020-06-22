@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  proxy:
+    image: nginx:1.17-alpine
+    container_name: proxy
+    ports:
+      - "8090:80"
+    volumes:
+      - ./proxy/conf/proxy.conf:/etc/nginx/conf.d/proxy.conf:ro
+    restart: always
+    network_mode: host
+  large-app:
+    image: koyadume/large-app
+    container_name: large-app
+    ports:
+      - "8091:80"
+    restart: always
+  large-app-plugin1:
+    image: koyadume/large-app-plugin1
+    container_name: large-app-plugin1
+    ports:
+      - "8092:80"
+    restart: always
+  
+  
