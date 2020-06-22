@@ -8,7 +8,6 @@ services:
     volumes:
       - ./proxy/conf/proxy.conf:/etc/nginx/conf.d/proxy.conf:ro
     restart: always
-    network_mode: host
   large-app:
     image: koyadume/large-app
     container_name: large-app
