@@ -1,0 +1,6 @@
+[submodule "large-app"]
+	path = large-app
+	url = git@github.com:koyadume/large-app.git
+[submodule "large-app-plugin1"]
+	path = large-app-plugin1
+	url = git@github.com:koyadume/large-app-plugin1.git
