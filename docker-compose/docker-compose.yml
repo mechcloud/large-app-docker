@@ -3,22 +3,19 @@ services:
   large-app-proxy:
     image: nginx:1.17-alpine
     container_name: large-app-proxy
-    ports:
-      - "8090:80"
     volumes:
-      - ./proxy/conf/proxy.conf:/etc/nginx/conf.d/proxy.conf:ro
+      - ./nginx/proxy/conf/proxy.conf:/etc/nginx/conf.d/default.conf:ro
     restart: always
-  large-app:
-    image: koyadume/large-app
-    container_name: large-app
-    ports:
-      - "8091:80"
-    restart: always
+    network_mode: host
+    extra_hosts:
+      - "vm-host.mechcloud.lab:10.0.2.2"
   large-app-plugin1:
-    image: koyadume/large-app-plugin1
+    image: nginx:1.17-alpine
     container_name: large-app-plugin1
-    ports:
-      - "8092:80"
+    volumes:
+      - ~/git-repos/large-app-plugin1/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ~/git-repos/large-app-plugin1/dist:/usr/share/nginx/html
     restart: always
-  
-  
+    network_mode: host
+    extra_hosts:
+      - "vm-host.mechcloud.lab:10.0.2.2"
